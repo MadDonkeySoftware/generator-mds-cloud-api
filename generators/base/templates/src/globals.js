@@ -22,7 +22,7 @@ if (process.env.MDS_LOG_URL) {
   );
 }
 const logger = bunyan.createLogger({
-  name: '<%= name %>',
+  name: '<%= githubName %>',
   level: bunyan.TRACE,
   serializers: bunyan.stdSerializers,
   streams: logStreams,

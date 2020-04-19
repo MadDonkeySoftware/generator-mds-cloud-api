@@ -1,7 +1,7 @@
 {
-  "name": "<%= name %>",
+  "name": "<%= nodeName %>",
   "version": "1.0.0",
-  "description": "A simple http based download/upload micro service",
+  "description": "<%= description %>",
   "scripts": {
     "server": "node ./src/index.js",
     "test": "NODE_ENV=test mocha",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MadDonkeySoftware/<%= name %>.git"
+    "url": "git+https://github.com/MadDonkeySoftware/<%= githubName %>.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MadDonkeySoftware/<%= name %>/issues"
+    "url": "https://github.com/MadDonkeySoftware/<%= githubName %>/issues"
   },
-  "homepage": "https://github.com/MadDonkeySoftware/<%= name %>#readme",
+  "homepage": "https://github.com/MadDonkeySoftware/<%= githubName %>#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "bunyan": "^1.8.12",
