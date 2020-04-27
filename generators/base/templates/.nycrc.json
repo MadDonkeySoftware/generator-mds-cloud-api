@@ -9,6 +9,7 @@
     "src/**/*.js"
   ],
   "exclude": [
+    "src/handlers/app_shutdown.js",
     "src/**/*.test.js"
   ],
   "ignore-class-method": "methodToIgnore",
