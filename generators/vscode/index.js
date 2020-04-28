@@ -19,7 +19,7 @@ module.exports = class extends Generator {
   }
 
   async writing() {
-    if (this.options.writeVSCode || this.answers.writeVSCodeLaunchConfig) {
+    if (this.stringIsTruthy(this.options.writeVSCode) || this.answers.writeVSCodeLaunchConfig) {
       this.copyFile('.vscode/launch.json');
     }
   }
