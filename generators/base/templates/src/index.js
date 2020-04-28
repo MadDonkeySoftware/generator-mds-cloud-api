@@ -10,7 +10,7 @@ const buildApp = () => {
   const app = express();
 
   const requestLogger = (req, res, next) => {
-    logger.trace(`Handling ${req.path} - ${req.method}`);
+    logger.trace({ path: req.path, method: req.method }, 'Handling request');
     next();
   };
 

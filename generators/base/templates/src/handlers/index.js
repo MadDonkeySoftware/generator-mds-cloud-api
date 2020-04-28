@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/sample/:param1', (request, response) => {
+const sampleHandler = (request, response) => {
   const { params, body } = request;
   const { param1 } = params;
 
@@ -16,6 +16,8 @@ router.get('/sample/:param1', (request, response) => {
 
   response.status(200);
   response.send();
-});
+};
+
+router.get('/sample/:param1', sampleHandler);
 
 module.exports = router;

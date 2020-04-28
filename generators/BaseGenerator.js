@@ -7,7 +7,7 @@ module.exports = class extends Generator {
 
   /**
    * Prompt that can be bypassed via command line args
-   * @param {Array<String>} prompts The array housing prompts
+   * @param {Array<Object>} prompts The array housing prompts
    * @param {Object} options Options for the prompt. See https://github.com/SBoudrias/Inquirer.js
    * @param {string} options.type Type of the prompt.
    * @param {string} options.name The key used to store the prompt answer.

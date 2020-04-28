@@ -4,7 +4,7 @@ const logger = globals.getLogger();
 
 const exitHandler = (options, exitCode) => {
   if (options.cleanup) logger.trace('cleanup');
-  if (options.exitCode || exitCode === 0) logger.trace(`ExitCode: ${exitCode}`);
+  if (options.exitCode || exitCode === 0) logger.trace({ exitCode }, `ExitCode: ${exitCode}`);
   if (options.exit) {
     Promise.resolve(logger.info('Shutting down.'))
       .then(() => {
