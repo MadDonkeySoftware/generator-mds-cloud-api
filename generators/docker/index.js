@@ -51,7 +51,7 @@ module.exports = class extends Generator {
       templateArgs.dockerRegistryPrefix = templateArgs.dockerRegistryPrefix + '/';
     }
 
-    if (this.options.writeDocker || this.answers.writeDocker) {
+    if (this.stringIsTruthy(this.options.writeDocker) || this.answers.writeDocker) {
       this.copyFile('.dockerignore');
       this.copyFile('Dockerfile', templateArgs);
       this.copyFile('docker-build.sh', templateArgs);

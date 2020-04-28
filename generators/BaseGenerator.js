@@ -34,4 +34,24 @@ module.exports = class extends Generator {
     }
   }
 
+  /**
+   * Tests a string for any user given value that could indicate truth
+   *
+   * @param {String} input the input string to test
+   * @returns {Boolean}
+   */
+  stringIsTruthy(input) {
+    if (!input) return false;
+
+    const lowered = input.toLowerCase();
+    if (lowered === 'y'
+      || lowered === 'true'
+      || lowered === 't'
+      || lowered === '1') {
+        return true;
+      }
+
+      return false;
+  };
+
 };
