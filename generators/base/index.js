@@ -63,11 +63,17 @@ module.exports = class extends Generator {
     this.copyFile('.mocharc.json');
     this.copyFile('.nycrc.json');
 
+    this.copyFile('bin/server');
+
     this.copyFile('src/index.js');
+    this.copyFile('src/index.test.js');
     this.copyFile('src/globals.js', templateArgs);
+    this.copyFile('src/globals.test.js');
     this.copyFile('src/bunyan-logstash-http.js');
+    this.copyFile('src/bunyan-logstash-http.test.js');
 
     this.copyFile('src/handlers/index.js');
+    this.copyFile('src/handlers/index.test.js');
     this.copyFile('src/handlers/app_shutdown.js');
   }
 };
