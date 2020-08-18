@@ -10,6 +10,7 @@ module.exports = class extends Generator {
     this.option('description', { type: String, description: 'The description to use for the github README.md and node package.json files.' });
     this.option('writeVSCode', { type: String, default: undefined, description: 'True to write the VSCode launch config, false to skip. Undefined to prompt.'})
     this.option('writeDocker', { type: String, default: undefined, description: 'True to write the Docker stubs, false to skip. Undefined to prompt.'})
+    this.option('writeJenkins', { type: String, default: undefined, description: 'True to write the Jenkinsfile stub, false to skip. Undefined to prompt.'})
     this.option('dockerRegistryPrefix', { type: String, description: 'The docker registry prefix to use.' });
     this.option('dockerContainerName', { type: String, description: 'The container name to use.' });
   }
@@ -18,5 +19,6 @@ module.exports = class extends Generator {
     this.composeWith(require.resolve('../base'), this.options);
     this.composeWith(require.resolve('../vscode'), this.options);
     this.composeWith(require.resolve('../docker'), this.options);
+    this.composeWith(require.resolve('../jenkins'), this.options);
   }
 };
