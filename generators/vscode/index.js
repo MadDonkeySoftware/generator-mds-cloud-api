@@ -21,6 +21,7 @@ module.exports = class extends Generator {
   async writing() {
     if (this.stringIsTruthy(this.options.writeVSCode) || this.answers.writeVSCodeLaunchConfig) {
       this.copyFile('.vscode/launch.json');
+      this.copyFile('.vscode/settings.json');
     }
   }
 }

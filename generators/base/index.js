@@ -73,6 +73,8 @@ module.exports = class extends Generator {
     this.copyFile('src/bunyan-logstash-http.js');
     this.copyFile('src/bunyan-logstash-http.test.js');
 
+    this.copyFile('src/handlers/handler-helpers.js');
+    this.copyFile('src/handlers/handler-helpers.test.js');
     this.copyFile('src/handlers/index.js');
     this.copyFile('src/handlers/index.test.js');
     this.copyFile('src/handlers/app_shutdown.js');

@@ -1,4 +1,5 @@
 const express = require('express');
+const handlerHelpers = require('./handler-helpers');
 
 const router = express.Router();
 
@@ -12,10 +13,7 @@ const sampleHandler = (request, response) => {
     message: body,
   };
 
-  response.write(JSON.stringify(msg));
-
-  response.status(200);
-  response.send();
+  handlerHelpers.sendResponse(response, 200, JSON.stringify(msg));
 };
 
 router.get('/sample/:param1', sampleHandler);

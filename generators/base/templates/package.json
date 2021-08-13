@@ -23,9 +23,13 @@
   },
   "homepage": "https://github.com/MadDonkeySoftware/<%= githubName %>#readme",
   "dependencies": {
+    "@maddonkeysoftware/orid-node": "^0.1.0",
+    "axios": "^0.21.1",
     "bunyan": "^1.8.15",
     "express": "^4.17.1",
-    "lodash": "^4.17.21"
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "url-join": "^4.0.1"
   },
   "devDependencies": {
     "chai": "^4.3.4",

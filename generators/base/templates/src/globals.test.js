@@ -1,9 +1,14 @@
 /* eslint-disable no-unused-expressions */
+const sinon = require('sinon');
 const chai = require('chai');
 
 const globals = require('./globals');
 
-describe('globals', () => {
+describe(__filename, () => {
+  afterEach(() => {
+    sinon.restore();
+  });
+
   describe('getLogger', () => {
     it('Returns a logger', () => {
       // Act
@@ -21,25 +26,20 @@ describe('globals', () => {
   describe('buildLogStreams', () => {
     it('Includes bunyan logstash http stream when MDS_LOG_URL present', () => {
       // Arrange
-      const beforeValueNodeEnv = process.env.NODE_ENV;
-      const beforeValueMdsLogUrl = process.env.MDS_LOG_URL;
+      sinon
+        .stub(globals, 'getEnvVar')
+        .withArgs('MDS_LOG_URL')
+        .returns('http://127.0.0.1:8080')
+        .withArgs('NODE_ENV')
+        .returns(undefined);
 
-      process.env.MDS_LOG_URL = 'http://127.0.0.1:8080';
-      process.env.NODE_ENV = undefined;
+      // Act
+      const streams = globals.buildLogStreams();
 
-      try {
-        // Act
-        const streams = globals.buildLogStreams();
-
-        // Assert
-        chai.expect(streams.length).to.be.eql(2);
-        chai.expect(streams[0].stream).to.eql(process.stdout);
-        chai.expect(streams[1].stream).to.not.eql(process.stdout);
-      } finally {
-        // Cleanup
-        process.env.MDS_LOG_URL = beforeValueMdsLogUrl;
-        process.env.NODE_ENV = beforeValueNodeEnv;
-      }
+      // Assert
+      chai.expect(streams.length).to.be.eql(2);
+      chai.expect(streams[0].stream).to.eql(process.stdout);
+      chai.expect(streams[1].stream).to.not.eql(process.stdout);
     });
   });
 
@@ -57,6 +57,28 @@ describe('globals', () => {
 
         chai.expect(drift).to.be.lessThan(2);
       });
+    });
+  });
+
+  describe('getEnvVar', () => {
+    it('returns whatever value the environment variable has', () => {
+      // Arrange
+      const expected = new Date().toISOString();
+      process.env.TEST_ENVIRONMENT_VARIABLE = expected;
+
+      // Act
+      const value = globals.getEnvVar('TEST_ENVIRONMENT_VARIABLE');
+
+      // Assert
+      chai.expect(value).to.equal(expected);
+    });
+
+    it('returns default value when the environment variable is empty', () => {
+      // Act
+      const value = globals.getEnvVar('TEST_ENVIRONMENT_VARIABLE_2');
+
+      // Assert
+      chai.expect(value).to.equal(undefined);
     });
   });
 });

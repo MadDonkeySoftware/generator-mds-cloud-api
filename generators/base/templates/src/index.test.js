@@ -2,7 +2,7 @@ const supertest = require('supertest');
 
 const src = require('.');
 
-describe('src/index', () => {
+describe(__filename, () => {
   it('provides the root url', () => {
     // Arrange
     const app = src.buildApp();

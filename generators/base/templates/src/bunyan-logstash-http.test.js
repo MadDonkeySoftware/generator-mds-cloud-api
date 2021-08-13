@@ -7,7 +7,7 @@ const https = require('https');
 
 const bunyanLogstashHttp = require('./bunyan-logstash-http');
 
-describe('bunyan-logstash-http', () => {
+describe(__filename, () => {
   afterEach(() => {
     sinon.restore();
   });
