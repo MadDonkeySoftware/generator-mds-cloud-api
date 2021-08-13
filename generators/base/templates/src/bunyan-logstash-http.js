@@ -27,7 +27,8 @@ const postMessage = function postMessage(settings, message) {
     },
   };
 
-  const request = parsedUrl.protocol === 'https:' ? https.request : http.request;
+  const request =
+    parsedUrl.protocol === 'https:' ? https.request : http.request;
 
   return new Promise((resolve, reject) => {
     const req = request(options, (res) => {
@@ -44,23 +45,21 @@ const postMessage = function postMessage(settings, message) {
     });
     req.write(data);
     req.end();
-  })
-    .then((resp) => {
-      const resolve = resp.statusCode < 400;
-      return resolve ? Promise.resolve() : Promise.reject();
-    });
+  }).then((resp) => {
+    const resolve = resp.statusCode < 400;
+    return resolve ? Promise.resolve() : Promise.reject();
+  });
 };
 
 const log = (settings, level, message, metadata) => {
   const meta = _.merge({}, settings.metadata, metadata);
   const timestamp = metadata.time;
-  return postMessage(settings,
-    {
-      '@timestamp': timestamp,
-      logLevel: level,
-      message,
-      ...meta,
-    });
+  return postMessage(settings, {
+    '@timestamp': timestamp,
+    logLevel: level,
+    message,
+    ...meta,
+  });
 };
 
 const write = (settings, record) => {

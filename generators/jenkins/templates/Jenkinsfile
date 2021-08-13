@@ -16,6 +16,9 @@ pipeline {
                     "linting": {
                         sh 'npm run lint'
                     }
+                    "pretty": {
+                        sh 'npm run pretty-check'
+                    }
                 )
             }
         }

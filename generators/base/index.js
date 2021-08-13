@@ -62,6 +62,7 @@ module.exports = class extends Generator {
     this.copyFile('.gitignore');
     this.copyFile('.mocharc.json');
     this.copyFile('.nycrc.json');
+    this.copyFile('.prettierrc');
 
     this.copyFile('bin/server');
 
