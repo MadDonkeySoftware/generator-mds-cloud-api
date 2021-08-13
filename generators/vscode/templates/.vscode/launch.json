@@ -19,7 +19,7 @@
             "port": 9229,
             "outputCapture": "std"
         },
-	{
+        {
             "type": "node",
             "request": "launch",
             "name": "Mocha Tests",

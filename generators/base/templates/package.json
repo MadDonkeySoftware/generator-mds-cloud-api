@@ -6,6 +6,8 @@
     "server": "./bin/server",
     "test": "NODE_ENV=test mocha",
     "test-cov": "NODE_ENV=test nyc mocha",
+    "test-watch": "NODE_ENV=test nodemon --exec mocha",
+    "test-watch-cov": "NODE_ENV=test nodemon --exec \"nyc mocha\"",
     "lint": "eslint 'src/**'"
   },
   "repository": {
@@ -30,6 +32,7 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "mocha": "^7.1.1",
+    "nodemon": "^2.0.4",
     "nyc": "^15.0.1",
     "sinon": "^9.0.2",
     "sinon-chai": "^3.5.0",
