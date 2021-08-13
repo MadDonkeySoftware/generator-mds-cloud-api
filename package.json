@@ -9,7 +9,7 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "snake-case": "^3.0.3",
     "yeoman-generator": "^4.8.2"
   }
